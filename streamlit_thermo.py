@@ -18,8 +18,8 @@ st.header('Parâmetros')
 
 st.radio('Modo', ['Volume constante'])
 
-V = int(st.number_input('Volume V/cm3', value = 100)) * 1e-6
-m = int(st.number_input('Massa m/g', value = 2.5)) * 1e-3
+V = float(st.number_input('Volume V/cm3', value = 100)) * 1e-6
+m = float(st.number_input('Massa m/g', value = 2.5)) * 1e-3
 
 bd = ct.Solution('data/thermodat.yaml')
 bd.TDY = 300, m/V, composition_dict
