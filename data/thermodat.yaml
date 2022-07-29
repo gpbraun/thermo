@@ -2,7 +2,7 @@ phases:
 - name: gas
   thermo: ideal-gas
   elements: [O, H, C, N, Ar]
-  species: [H2, H, O, O2, OH, H2O, HO2, H2O2, C, CH, CH2, CH2(S), CH3, CH4,
+  species: [H2, H, O, O2, OH, H2O(g), HO2, H2O2, C, CH, CH2, CH2(S), CH3, CH4,
     CO, CO2, HCO, CH2O, CH2OH, CH3O, CH3OH, C2H, C2H2, C2H3, C2H4, C2H5,
     C2H6, HCCO, CH2CO, HCCOH, N, NH, NH2, NH3, NNH, NO, NO2, N2O, HNO, CN,
     HCN, H2CN, HCNN, HCNO, HOCN, HNCO, NCO, N2, AR, C3H7, C3H8, CH2CHO,
@@ -60,7 +60,7 @@ species:
       3615.08056, -0.103925458]
     - [3.09288767, 5.48429716e-04, 1.26505228e-07, -8.79461556e-11, 1.17412376e-14,
       3858.657, 4.4766961]
-- name: H2O
+- name: H2O(g)
   composition: {H: 2, O: 1}
   thermo:
     model: NASA7

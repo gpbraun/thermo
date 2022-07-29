@@ -6,7 +6,7 @@ import pandas as pd
 def input():
     """Recebe os dados para o cálculo de ignição em volume constante.
     """
-    V = float(st.number_input('Pressão P/MPa', value=100)) * 1e6
+    V = float(st.number_input('Pressão P/MPa', value=30)) * 1e6
     m = float(st.number_input('Massa m/g', value=2.5)) * 1e-3
     return V, m
 
@@ -28,12 +28,17 @@ def results(composition, V, m):
 
     st.header('Resultados')
 
-    st.text(f'Temperatura: {out.T:.2f} K')
-    st.text(f'Volume final: {out.volume*1e6:.2f} cm3')
+    col1, col2 = st.columns(2)
 
-    st.header('Produtos de Combustão')
+    with col1:
+        st.metric(label = 'Temperatura', value = f'{out.T:.2f} K')
+    
+    with col2:
+        st.metric(label = 'Volume final', value = f'{out.volume*1e6:.2f} cm³')
 
-    fractions = out.mass_fraction_dict(1e-4)
+    st.subheader('Produtos de Combustão')
+
+    fractions = out.mass_fraction_dict(1e-3)
 
     df = pd.DataFrame.from_dict(
         fractions, orient='index', columns=['Fração mássica'])

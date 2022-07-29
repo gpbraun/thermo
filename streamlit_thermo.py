@@ -1,5 +1,5 @@
 """
-Cálculo de temperatura adiabática de chama
+Aplicativo para o cálculo da temperatura adiabática de chama
 """
 
 import streamlit as st
@@ -8,12 +8,14 @@ import json
 import constant_volume
 import constant_pressure
 
-with open('data/compositions.json', 'r') as json_file:
-    COMPOSITIONS = json.load(json_file)
-
 st.title('LQM ICT')
+st.caption('Centro Tecnológico do Exército')
+st.caption('Laboratório de Química Militar')
 
 st.header('Composição')
+
+with open('data/compositions.json', 'r') as json_file:
+    COMPOSITIONS = json.load(json_file)
 
 other_key = 'Outro'
 

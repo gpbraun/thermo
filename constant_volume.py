@@ -28,10 +28,15 @@ def results(composition, V, m):
 
     st.header('Resultados')
 
-    st.text(f'Temperatura: {out.T:.2f} K')
-    st.text(f'Pressão final: {out.P/1e6:.2f} MPa')
+    col1, col2 = st.columns(2)
 
-    st.header('Produtos de Combustão')
+    with col1:
+        st.metric(label = 'Temperatura', value = f'{out.T:.2f} K')
+    
+    with col2:
+        st.metric(label = 'Pressão final', value = f'{out.P/1e6:.2f} MPa')
+
+    st.subheader('Produtos de Combustão')
 
     fractions = out.mass_fraction_dict(1e-4)
 
