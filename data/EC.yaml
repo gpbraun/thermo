@@ -1,0 +1,18 @@
+phases:
+- name: Ethyl Centralit
+  thermo: fixed-stoichiometry
+  elements: [O, H, C, N]
+  species: [EC]
+  state:
+    T: 300.0
+    P: 1.01325e+05
+
+species:
+- name: EC
+  composition: {C: 17, H: 20, N: 2, O: 1}
+  thermo:
+    model: constant-cp
+    h0: -105.02 kJ/mol
+  equation-of-state:
+    model: constant-volume
+    density: 1.14 g/cm^3

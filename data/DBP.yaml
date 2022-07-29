@@ -1,0 +1,18 @@
+phases:
+- name: Dibuthyl Phtalate
+  thermo: fixed-stoichiometry
+  elements: [O, H, C]
+  species: [DBP]
+  state:
+    T: 300.0
+    P: 1.01325e+05
+
+species:
+- name: DBP
+  composition: {C: 16, H: 22, O: 4}
+  thermo:
+    model: constant-cp
+    h0: -842.66 kJ/mol
+  equation-of-state:
+    model: constant-volume
+    density: 1.047 g/cm^3

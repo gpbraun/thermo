@@ -1,0 +1,18 @@
+phases:
+- name: Nitroglycerin
+  thermo: fixed-stoichiometry
+  elements: [O, H, C, N]
+  species: [NG]
+  state:
+    T: 300.0
+    P: 1.01325e+05
+
+species:
+- name: NG
+  composition: {C: 3, H: 5, N: 3, O: 9}
+  thermo:
+    model: constant-cp
+    h0: -369.87 kJ/mol
+  equation-of-state:
+    model: constant-volume
+    density: 1.593 g/cm^3
