@@ -8,9 +8,15 @@ import json
 import constant_volume
 import constant_pressure
 
-st.title('LQM ICT')
-st.caption('Centro Tecnológico do Exército')
-st.caption('Laboratório de Química Militar')
+st.set_page_config(page_title='LQM', page_icon=':bomb:')
+
+col1, col2 = st.columns((10,1)) 
+
+col1.title('LQM - Simulação de Explosão')
+col1.caption('Centro Tecnológico do Exército, Laboratório de Química Militar')
+col1.markdown("**Contato:** braun.pineschi@eb.mil.br")
+
+# col2.image('images/logo-ctex.png', width = 100)
 
 st.header('Composição')
 
@@ -35,4 +41,13 @@ MODES = {
 
 mode = st.radio('Modo', list(MODES))
 
-MODES[mode](composition)
+parameters_container = st.container()
+
+st.header('Resultados')
+
+results_container = st.container()
+
+try:
+    MODES[mode](parameters_container, results_container, composition)
+except NameError:
+    st.error('Erro na definição da composição!')
